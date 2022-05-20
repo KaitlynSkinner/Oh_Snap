@@ -9,9 +9,14 @@ function Nav(props) {
     } = props;
 
     // if currentCategory changes now, the component will re-render so that the change in document.title will be visible to the user.
-    useEffect(() => {
-        document.title = capitalizeFirstLetter(currentCategory.name);
-    }, [currentCategory]);
+    // useEffect(() => {
+    //     document.title = capitalizeFirstLetter(currentCategory.name);
+    // }, [currentCategory]);
+
+    // const handleClick = (item) => {
+    //     console.log(item);
+    //     return item;
+    // };
 
     return (
         <header className="flex-row px-1">
@@ -27,7 +32,7 @@ function Nav(props) {
                             About me
                         </a>
                     </li>
-                    <li className-="mx-2">
+                    <li className="mx-2">
                         <span>Contact</span>
                     </li>
                     {categories.map((category) => (
