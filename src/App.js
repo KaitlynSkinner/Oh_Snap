@@ -22,18 +22,31 @@ function App() {
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
+  // prevent the contact form from showing when a user initially navigates to the homepage
+  const [contactSelected, setContactSelected] = useState(false);
+
   return (
     <div>
       <Nav
         categories={categories}
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
+        contactSelected={contactSelected}
+        setContactSelected={setContactSelected}
       ></Nav>
       <main>
         <div>
-          <ContactForm></ContactForm>
-          <Gallery currentCategory={currentCategory}></Gallery>
-          <About></About>
+          {/* if the contactSelected is false, the Gallery and About components should be rendered, but if contactedSelected is true, the ContactForm component should be rendered. */}
+          {!contactSelected ? (
+            // React fragments—a shorthand abbreviation for <React.Fragment></React.Fragment>
+            <>
+              <Gallery currentCategory={currentCategory}></Gallery>
+              <About></About>
+            </>
+            // ternary operator
+            ) : (
+              <ContactForm></ContactForm>
+            )}
         </div>
       </main>
     </div>
@@ -41,3 +54,4 @@ function App() {
 }
 
 export default App;
+// App.js = is responsible for how the React components currently render
