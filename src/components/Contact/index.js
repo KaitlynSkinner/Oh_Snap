@@ -60,7 +60,7 @@ function ContactForm() {
                     <label htmlFor="message">Message:</label>
                     <textarea name="message" defaultValue={message} onBlur={handleChange} rows="5"  />
                 </div>
-                {/* f the first value resolves to true, the second expression is evaluated. */}
+                {/* if the first value resolves to true, the second expression is evaluated. */}
                 {errorMessage && (
                     <div>
                         <p className="error-text">{errorMessage}</p>
