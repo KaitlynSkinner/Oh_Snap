@@ -112,12 +112,15 @@ function PhotoList({ category }) {
     // current photo
     // spread operator used to add the index: i key value pair to the current photo state
     setCurrentPhoto({...image, index: i});
-    setIsModalOpen(true);
+    // isModalOpen - when the toggleModal function is executed, the value of isModalOpen is toggled from true to false
+    setIsModalOpen(!isModalOpen);
   }
 
   return (
     <div>
-      {isModalOpen && <Modal currentPhoto={currentPhoto} />}
+      {isModalOpen && (
+      <Modal currentPhoto={currentPhoto} onClose={toggleModal} />
+      )}
       <div className="flex-row">
         {currentPhotos.map((image, i) => (
           <img
